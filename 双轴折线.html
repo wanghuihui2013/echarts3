@@ -1,0 +1,143 @@
+<!DOCTYPE html>  
+<html>  
+    <head>  
+        <meta charset="UTF-8">  
+        <title>Echarts-双轴图</title>   
+        <script type="text/javascript" src="js/jquery-1.12.2.min.js" ></script>  
+       <script src="js/echarts.js"></script>
+        <style>  
+            body,html{  
+                width: 99%;  
+                height: 99%;  
+                font-family: "微软雅黑";  
+                font-size: 12px;  
+            }  
+            #double{  
+                width: 100%;  
+                height: 100%;  
+                font-family: "agency fb";  
+                font-weight: bolder;  
+            }  
+        </style>  
+        <script>  
+            $(function(){  
+                var chart = document.getElementById('double');    
+                var echart = echarts.init(chart);    
+                    
+                var option = {  
+                    title : {  
+                        text: '可利用率',  
+                        subtext: '',  
+                        x: 'center',  
+                        align: 'right'  
+                    },  
+                    grid: {  
+                        bottom: 80  
+                    },  
+                    tooltip : {  
+                        trigger: 'axis',  
+                        axisPointer: {  
+                            animation: false  
+                        },  
+                        formatter: function (params) {  
+                            var res = params[0].name;  
+                            for (var i = 0, l = params.length; i < l; i++)   
+                            {  
+                                if(i==0)  
+                                {  
+                                    res += '<br/>' + params[i].seriesName + ' : ' + params[i].value + "%";  
+                                }  
+                                else  
+                                {  
+                                    res += '<br/>' + params[i].seriesName + ' : ' + params[i].value;  
+                                }  
+                            }  
+                              
+                            return res;  
+                        }  
+                    },  
+                    legend: {  
+                        data:['可利用率','A','B'],  
+                        x: 'left'  
+                    },  
+                    xAxis : [  
+                        {  
+                            type : 'category',  
+                            axisLabel: {  
+                                rotate: 45  
+                            },  
+                            boundaryGap : false,  
+                            axisLine: {onZero: false},  
+                           data:['04/14','04/21','04/28','05/5','05/12','05/19','05/26'].map(function (str) {  
+                                return str.replace(' ', '\n')  
+                            })  
+                        }  
+                    ],  
+                    yAxis: [  
+                        {  
+                            name: '可利用率',  
+                            type: 'value',  
+                            max: 100,  
+                            axisLabel: {  
+                              show: true,  
+                              interval: 'auto',  
+                              formatter: '{value} %'  
+                            }  
+                        },  
+                        {  
+                            name: 'A',  
+                            nameLocation: 'start',  
+                            type: 'value',  
+                            inverse: true  
+                        } 
+                    ],  
+                    series: [  
+                        {  
+                            name:'可利用率',  
+                            type:'line',  
+                            hoverAnimation: false,  
+                            itemStyle: {  
+                                normal: {  
+                                    label : {  
+                                        show:false,  
+                                        position:'top',  
+                                        formatter:'{c} %'  
+                                    }  
+                                }  
+                            },  
+                            areaStyle: {  
+                                normal: {}  
+                            },  
+                            lineStyle: {  
+                                normal: {  
+                                    width: 1  
+                                }  
+                            },  
+                            data:[0,-0.66, -1, -1.16, -1.66,-3.81, -6.8]  
+                        },  
+                        {  
+                            name:'A',  
+                            type:'line',  
+                            yAxisIndex:1,  
+                            hoverAnimation: false,  
+                            areaStyle: {  
+                                normal: {}  
+                            },  
+                            lineStyle: {  
+                                normal: {  
+                                    width: 1  
+                                }  
+                            },  
+                            data: [603,599, 597, 596, 593, 580, 562]  
+                        }
+                    ]  
+                };  
+                    
+                echart.setOption(option);    
+            });  
+        </script>  
+    </head>  
+    <body>  
+        <div id="double"></div>  
+    </body>  
+</html>  

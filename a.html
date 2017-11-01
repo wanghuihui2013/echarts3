@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		a{
+			position: absolute;
+		}
+	</style>
+</head>
+<body>
+	
+ 
+	<div id="main" style="width:400px;height:400px"><br></div>
+	<script type="text/javascript" src="js/echarts.js" charset="utf-8"/>
+	<script>
+    var myChart = echarts.init(document.getElementById('main'));
+	app.title = '堆叠柱状图';
+
+option = {
+      tooltip: {  
+        trigger: 'item',  
+        formatter: '{a}:\n{c}%'  
+    },
+    legend: {
+        data:['邮件营销','联盟广告','视频广告']
+    },
+    grid: {
+        left: '3%',
+        right: '4%',
+        bottom: '3%',
+        containLabel: true
+    },
+    xAxis : [
+        {
+            type : 'category',
+            data : ['周一','周二','周三','周四','周五','周六','周日']
+        }
+    ],
+    yAxis : [
+        {
+            type : 'value',
+              axisLabel: {  
+                  show: true,  
+                  interval: 'auto',  
+                  formatter: '{value} %'  
+                },  
+            show: true  
+        }
+    ],
+    series : [
+      
+        {
+            show: true,
+            name:'邮件营销',
+            type:'bar',
+            stack: '广告',
+            data:[120, 132, 101, 134, 90, 230, 210]
+            
+        },
+        {
+            name:'联盟广告',
+            type:'bar',
+            stack: '广告',
+            data:[220, 182, 191, 234, 290, 330, 310]
+        },
+        {
+            name:'视频广告',
+            type:'bar',
+            stack: '广告',
+            data:[150, 232, 201, 154, 190, 330, 410]
+        }
+      
+    ]
+};
+myChart.setOption(option)
+	</script>
+</body>
+</html>

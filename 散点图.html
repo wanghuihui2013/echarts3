@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div id="pic4" style="width: 1000px;height:400px;"></div>
+	<script src="js/echarts.js"></script>
+	<script>
+		var myChart = echarts.init(document.getElementById('pic4'));
+		option = {
+    		title: {
+			        text: ' ',
+			        x: '',
+			        y: 0
+			    },
+			   legend: {
+					orient: 'horizontal',
+					x:'center',
+					data:['下月合同','2个月的合同']
+				},
+			    tooltip: {
+			        formatter: ' {a}: ({c})'
+			    },
+			    color:['#909090','#ffcf5a','#930101'],
+			    xAxis: [
+			        {
+				    name:'公司名称',
+				    type:'category',
+				    splitNumber:7,
+				    nameGap:130,
+				    /*minInterval: 1,*/
+			        data: ['首钢','百度', '阿里', '科贸','金隅','科东','南瑞'],
+			       
+			    	}
+			       
+			    ],
+			    yAxis: [
+			        {
+			        	gridIndex: 0,
+			        	min: 0, 
+			        	max: 10 
+			        },
+			      
+			    ],
+			    series: [
+			    {
+			            name: '线',
+			            type: 'scatter',
+			            symbolSize: 20,
+			            markLine: {
+			                silent: true,
+			                data: [{
+			                    yAxis: 5
+			                }]
+			            },
+			            data: [
+			                ['首钢', ],
+			                ['百度', ],
+			                ['阿里', ],
+			                ['科贸', ],
+			                ['金隅', ],
+			                ['科东', ],
+			                ['南瑞', ]
+			              
+			            ],
+			        },
+			        {
+			            name: '下月合同',
+			            type: 'scatter',
+			            symbolSize: 20,
+			            data: [
+			                ['首钢', ],
+			                ['百度', ],
+			                ['阿里', 3],
+			                ['科贸', 4],
+			                ['金隅', ],
+			                ['科东', ],
+			                ['南瑞', ]
+			              
+			            ]
+			        },
+			        {
+			            name: '2个月的合同',
+			            type: 'scatter',
+			            symbolSize: 20,
+			            data: [
+			                ['首钢', 2],
+			                ['百度', ],
+			                ['阿里', ],
+			                ['科贸', ],
+			                ['金隅', ],
+			                ['科东', ],
+			                ['南瑞', 3]
+			              
+			            ],
+			        }
+
+			    ]
+			};
+		 myChart.setOption(option);
+	</script>
+</body>
+</html>

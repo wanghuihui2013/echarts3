@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		img{
+			background-image: url();
+		}
+	</style>
+</head>
+<body>
+	<div id="pic4" style="width: 1000px;height:400px;"></div>
+	<img src="" alt="">
+	<script src="js/echarts.js"></script>
+	<script>
+		var myChart = echarts.init(document.getElementById('pic4'));
+		option = {
+			    title: {
+			    	text:'成交申报价趋势'			        
+			    },
+			    tooltip: {
+			        trigger: 'axis',
+			        
+			    },
+			    legend: {
+			        data:['需方','需方平均','结算平均价差','结算平均价差','我方成交','供需比'],
+			        bottom:'bottom'
+			    },
+			    toolbox: {
+			        show: true,
+			        feature: {
+			            dataView: {readOnly: false},
+			            restore: {},
+			            saveAsImage: {}
+			        }
+			    },
+			    dataZoom: {
+			        show: false,
+			        start: 0,
+			        end: 100
+			    },
+			    toolbox:{
+			    	show:false,
+			    },
+			    xAxis: [
+			        {
+			            type: 'category',
+			            boundaryGap: true,
+			            data:['1月','2月','3月','4月','5月','6月','7月'],
+			        }
+			    ],
+			    yAxis: [
+			        {
+			            type: 'value',
+			            scale: true,
+			           
+			        },
+			        {
+			            type: 'value',
+			            scale: true,
+			             axisLabel: {
+			                formatter: '{value}%'
+			            },
+			            
+			        }
+			    ],
+			    series: [
+			        {
+			            name:'需方',
+			            type:'bar',
+			            color:["#fbc191"],
+			            yAxisIndex: 0,
+			            data:[-5,-6,-7,-8,-9,-1,-11]
+			        },
+			        {
+			            name:'需方平均',
+			            type:'line',
+			            yAxisIndex: 1,
+			            data:[30,20,50,40,20,10,30]
+			        },
+			         {
+			            name:'结算平均价差',
+			            type:'line',
+			            yAxisIndex: 1,
+			            data:[40,60,50,20,40,70,90]
+			        },
+			         {
+			            name:'我方成交',
+			            type:'line',
+			            yAxisIndex: 1,
+			            data:[10,60,50,20,40,70,90]
+			        },
+			         {
+			            name:'供需比',
+			            type:'line',
+			            yAxisIndex: 1,
+			            data:[20,60,50,20,40,70,90]
+			        }
+			    ]
+			};
+		myChart.setOption(option);
+	</script>
+</body>
+</html>

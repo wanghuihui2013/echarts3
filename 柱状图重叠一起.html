@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+  <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+   <div class="row">
+    <input type="text" style="background-color:red">
+        <div id="main" style="width: 100%;height:400px;"></div>
+   </div>
+    <script src="js/echarts.js "></script>
+    <script>
+   /* $("#chart").css( 'width', $("#chart").width() );*/
+    var myChart = echarts.init(document.getElementById('main'));
+    myChart.title = '坐标轴刻度与标签对齐';
+    
+    myChart.setOption(option)
+    </script>
+</body>
+</html>

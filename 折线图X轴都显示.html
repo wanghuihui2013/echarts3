@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div id="pic4" style="width: 1000px;height:400px;"></div>
+	<script src="js/echarts.js"></script>
+	<script>
+		var myChart = echarts.init(document.getElementById('pic4'));
+		/*option = {
+			    	    title: {
+			    	        text: '堆叠区域图'
+			    	    },
+			    	    tooltip : {
+			    	        trigger: 'axis'
+			    	    },
+			    	    legend: {
+			    	        data:['邮件营销','联盟广告','视频广告','直接访问','搜索引擎']
+			    	    },
+			    	    grid: {
+			    	        left: '3%',
+			    	        right: '4%',
+			    	        bottom: '3%',
+			    	        containLabel: true
+			    	    },
+			    	    xAxis : [
+			    	        {
+			    	            type : 'category',
+			    	            boundaryGap : false,
+			    	            axisLabel:{
+			    	                interval:0   //设置间隔，0的时候全部显示
+			    	                        },
+
+			    	            data : ['1','2','3','4','5','6','7','8','9']
+			    	        }
+			    	    ],
+			    	    yAxis : [
+			    	        {
+			    	            type : 'value',
+			    	            name: 'kW'
+			    	        }
+			    	    ],
+			    	    series : [		    	        
+			    	        {
+			    	            name:'搜索引擎',
+			    	            type:'line',
+			    	            data:[820, 932, 901, 934, 1290]
+			    	        }
+			    	    ]
+			    	};*/
+			    	option = {
+    title: {
+        text: '未来一周气温变化',
+        subtext: '纯属虚构'
+    },
+    tooltip: {
+        trigger: 'axis'
+    },
+    legend: {
+        data:['最高气温','最低气温']
+    },
+    
+    xAxis:  {
+        type: 'category',
+        boundaryGap: false,
+        axisLabel:{
+	                interval:0   //设置间隔，0的时候全部显示
+                },
+        data: ['周一','周二','周三','周四','周五','周六','周日','1','2'],
+
+    },
+    yAxis: {
+        type: 'value',
+        axisLabel: {
+            formatter: '{value} °C'
+        }
+    },
+    series: [
+        {
+            name:'最高气温',
+            type:'line',
+            data:[11, 11, 15],
+            markPoint: {
+                data: [
+                    {type: 'max', name: '最大值'},
+                    {type: 'min', name: '最小值'}
+                ]
+            },
+            markLine: {
+                data: [
+                    {type: 'average', name: '平均值'}
+                ]
+            }
+        }
+    ]
+};
+
+		myChart.setOption(option);
+	</script>
+</body>
+</html>

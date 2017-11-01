@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div id="pic4" style="width: 600px;height:400px;"></div>
+    <script src="js/echarts.js"></script>
+	<script>
+		var myChart13 = echarts.init(document.getElementById('pic4'));
+	        option15 = {
+	        	    title: {
+	        	        text: '市场预测验证',
+	        	        left:'center'
+	        	    },
+	        	    tooltip: {
+        	        trigger: 'axis',
+
+        	    },
+        	    grid:{
+        	    	bottom:"18%"
+        	    },
+        	    legend: {
+        	        data:['供应方申报均价','需求方申报均价','成交申报均价','供方最高申报价','需方最低申报价','供应方申报均价预测值', '需求方申报均价预测值','成交申报均价预测值',],
+        	        top:'bottom',
+        	    },
+        	    color:['#8abeb2','#c9ba83','#de9c52','#f3ba9c','#2eddc1','#FCCE10','#E87C25','#27727B','#f2e0dc','#dfaba0','#ddd38c'],
+        	    xAxis:  {
+        	        type: 'category',
+        	        data : ['1','2','3','4']
+        	    },
+        	    yAxis: {
+        	        type: 'value',
+        	        axisLabel: {
+        	            formatter: '{value}'
+        	        }
+        	    },
+        	    series: [
+        	        {
+        	            name:'供应方申报均价',
+        	            type:'line',
+        	            data:[110,106,110,110],
+        	           
+        	        },
+			        {
+			            type:'line',
+			            name : '需求方申报均价',
+						data:[210,136,120,120],
+			        }
+			        ,
+			        {
+			            type:'line',
+			            name : '成交申报均价',
+						data:[21,137,125,160],
+			        }
+			        ,
+			        {
+			            type:'line',
+			            name : '供方最高申报价',
+						data:[211,36,10,12],
+			        }
+			        ,
+			        {
+			            type:'line',
+			            name : '需方最低申报价',
+						data:[280,236,220,20],
+			        }
+			        ,
+			        {
+			            type:'line',
+			            name : '供应方申报均价预测值',
+						data:[30,46,60,70],
+			        }
+			         ,
+			        {
+			            type:'line',
+			            name : '需求方申报均价预测值',
+						data:[70,56,40,30],
+			        }
+			         ,
+			        {
+			            type:'line',
+			            name : '成交申报均价预测值',
+						data:[20,16,10,10],
+			        }
+				]
+        	};
+
+        myChart13.setOption(option15);
+	</script>
+</body>
+</html>

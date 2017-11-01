@@ -1,0 +1,71 @@
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+</head>
+<body>
+	<div id="main" style="100%; height: 100%;"></div>
+</body>
+<script src="js/echarts.js"></script>
+<script src="js/map/js/province/hubei.js"></script>
+<script>
+	var myChart = echarts.init(document.getElementById('main'));
+	var option = {
+		title: {
+			text : '湖北地图',
+			subtext : '-。-'
+		},
+		tooltip : {
+			trigger: 'item',
+			formatter: function(a){
+				return a[2];
+			}
+		},
+		legend: {
+			orient: 'vertical',
+			x:'right',
+			data:['数据名称']
+		},
+		dataRange: {
+			min: 0,
+			max: 1000,
+			color:['orange','yellow'],
+			text:['高','低'],           // 文本，默认为数值文本
+			calculable : true
+		},
+		series : [
+			{
+				name: '数据名称',
+				type: 'map',
+				mapType: '湖北',
+				selectedMode : 'single',
+				itemStyle:{
+					normal:{label:{show:true}},
+					emphasis:{label:{show:true}}
+				},
+				data:[
+					{name: '十堰市',value: Math.round(Math.random()*1000)},
+					{name: '襄樊市',value: Math.round(Math.random()*1000)},
+					{name: '随州市',value: Math.round(Math.random()*1000)},
+					{name: '神农架林区',value: Math.round(Math.random()*1000)},
+					{name: '恩师土家族苗族自治州',value: Math.round(Math.random()*1000)},
+					{name: '宜昌市',value: Math.round(Math.random()*1000)},
+					{name: '荆门市',value: Math.round(Math.random()*1000)},
+					{name: '天门市',value: Math.round(Math.random()*1000)},
+					{name: '潜江市',value: Math.round(Math.random()*1000)},
+					{name: '荆州市',value: Math.round(Math.random()*1000)},
+					{name: '仙桃市',value: Math.round(Math.random()*1000)},
+					{name: '武汉市',value: Math.round(Math.random()*1000)},
+					{name: '黄冈市',value: Math.round(Math.random()*1000)},
+					{name: '鄂州市',value: Math.round(Math.random()*1000)},
+					{name: '咸宁市',value: Math.round(Math.random()*1000)},
+					{name: '黄石市',value: Math.round(Math.random()*1000)},
+					
+				]
+			}
+		]
+	};
+	myChart.setOption(option);
+                    
+</script>
+</html>

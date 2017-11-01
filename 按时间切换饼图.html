@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+<div id="main" style="800px; height:400px;"></div>
+</body>
+<script src="js/echarts.js"></script>
+<script src="js/map/js/province/shanghai.js"></script>
+<script>
+	var myChart = echarts.init(document.getElementById('main'));
+	option = {
+	    baseOption: {
+	      timeline: {
+	        itemStyle: {
+	          normal: {
+	            color: '#04a5f1'
+	          },
+	          emphasis: {
+	            color: '#04a5f1'
+	          }
+	        },
+	        lineStyle: {
+	          color: '#ddd'
+	        },
+	        checkpointStyle: {
+	          color: '#04a5f1',
+	          borderColor: 'rgba(4, 165, 261, .5)'
+	        },
+	        data: ['2017/01', '2017/02', '2017/03', '2017/04', '2017/05', '2017/06']
+	      },
+	      tooltip: {
+	        trigger: 'item',
+	        formatter: "{a} <br/>{b} : {c} ({d}%)"
+	      },
+	      backgroundColor: '#fff',
+	      series: [{
+	        name: '库存情况',
+	        type: 'pie',
+	        radius: '68%',
+	        center: ['50%', '50%'],
+	        clockwise: false,
+
+	        label: {
+	          normal: {
+	            textStyle: {
+	              color: '#999',
+	              fontSize: '12',
+	              fontWeight: 'normal'
+	            }
+	          }
+	        },
+	        labelLine: {
+	          normal: {
+	            show: false
+	          }
+	        },
+	        itemStyle: {
+	          normal: {
+	            borderWidth: 4,
+	            borderColor: '#ffffff',
+	          },
+	          emphasis: {
+	            borderWidth: 0,
+	            shadowBlur: 10,
+	            shadowOffsetX: 0,
+	            shadowColor: 'rgba(0, 0, 0, 0.5)'
+	          }
+	        }
+	      }],
+	      color: [
+	        '#00acee',
+	        '#52cdd5',
+	        '#79d9f1',
+	        '#a7e7ff',
+	        '#c8efff'
+	      ]
+	    },
+	    options: [{ // 这是'2017/01' 对应的 option
+	      title: {
+	        text: '部门1月份费用占比变化',
+
+	      },
+	      series: [{
+	        data: [{
+	          value: 45,
+	          name: 'CARD'
+	        }, {
+	          value: 25,
+	          name: 'SSD'
+	        }, {
+	          value: 15,
+	          name: 'U盘'
+	        }, {
+	          value: 8,
+	          name: '嵌入式'
+	        }, {
+	          value: 7,
+	          name: 'FLASH'
+	        }],
+	      }]
+	    }, { // 这是'2017/02' 对应的 option
+	      title: {
+	        text: '2017年1月份库存占比'
+	      },
+	      series: [{
+	        data: [{
+	          value: 12,
+	          name: 'CARD'
+	        }, {
+	          value: 35,
+	          name: 'SSD'
+	        }, {
+	          value: 18,
+	          name: 'U盘'
+	        }, {
+	          value: 18,
+	          name: '嵌入式'
+	        }, {
+	          value: 27,
+	          name: 'FLASH'
+	        }],
+	      }]
+	    }, { // 这是'2017/02' 对应的 option
+	      title: {
+	        text: '2017年1月份库存占比'
+	      },
+	      series: [{
+	        data: [{
+	          value: 17,
+	          name: 'CARD'
+	        }, {
+	          value: 23,
+	          name: 'SSD'
+	        }, {
+	          value: 12,
+	          name: 'U盘'
+	        }, {
+	          value: 28,
+	          name: '嵌入式'
+	        }, {
+	          value: 21,
+	          name: 'FLASH'
+	        }],
+	      }]
+	    }, { // 这是'2017/02' 对应的 option
+	      title: {
+	        text: '2017年1月份库存占比'
+	      },
+	      series: [{
+	        data: [{
+	          value: 14,
+	          name: 'CARD'
+	        }, {
+	          value: 35,
+	          name: 'SSD'
+	        }, {
+	          value: 58,
+	          name: 'U盘'
+	        }, {
+	          value: 13,
+	          name: '嵌入式'
+	        }, {
+	          value: 29,
+	          name: 'FLASH'
+	        }],
+	      }]
+	    }, { // 这是'2017/02' 对应的 option
+	      title: {
+	        text: '2017年1月份库存占比'
+	      },
+	      series: [{
+	        data: [{
+	          value: 12,
+	          name: 'CARD'
+	        }, {
+	          value: 33,
+	          name: 'SSD'
+	        }, {
+	          value: 11,
+	          name: 'U盘'
+	        }, {
+	          value: 18,
+	          name: '嵌入式'
+	        }, {
+	          value: 24,
+	          name: 'FLASH'
+	        }],
+	      }]
+	    }, { // 这是'2017/02' 对应的 option
+	      title: {
+	        text: '2017年1月份库存占比'
+	      },
+	      series: [{
+	        data: [{
+	          value: 18,
+	          name: 'CARD'
+	        }, {
+	          value: 35,
+	          name: 'SSD'
+	        }, {
+	          value: 14,
+	          name: 'U盘'
+	        }, {
+	          value: 18,
+	          name: '嵌入式'
+	        }, {
+	          value: 21,
+	          name: 'FLASH'
+	        }],
+	      }]
+	    }, ],
+	};
+myChart.setOption(option);
+</script>
+</html>

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		span{
+			float:left;
+			width:100px;
+			height:100px;
+			background-color: red;
+		}
+	</style>
+</head>
+<body>
+	<span></span>
+
+	<div id="pic4" style="width: 600px;height:400px;"></div>
+	<div id="pic0" style="width: 600px;height:400px;"></div>
+    <script src="js/echarts.js"></script>
+	<script>
+			//日负荷曲线
+	var myChart13 = echarts.init(document.getElementById('pic4'));
+	 		var data = [];
+	        option15 = {
+	        	    title: {
+	        	        text: '日负荷曲线',
+	        	    },
+	        	    tooltip: {
+	        	        trigger: 'axis',
+
+	        	    },
+	        	    legend: {
+	        	        data:['昨日(11月8日)','今日(11月9日)']
+	        	    },
+	        	    grid: {
+	        	    	show:true,
+				        left: '1%',
+				        right: '1%',
+				        bottom: '3%',
+				        containLabel: true
+				    },
+	        	    toolbox: {
+	        	        show: false,
+	        	        feature: {
+	        	            dataZoom: {
+	        	                yAxisIndex: 'none'
+	        	            },
+	        	            dataView: {readOnly: false},
+	        	            magicType: {type: ['line', 'bar']},
+	        	            restore: {},
+	        	            saveAsImage: {}
+	        	        }
+	        	    },
+	        	    color:["red","#CD3333"],
+	        	    xAxis:  {
+	        	        type: 'category',
+	        	        splitLine:{
+	        	        	show: true,
+	        	        	lineStyle: {
+							color: ['#ccc'],
+							width: 1,
+							type: 'dotted',
+							},
+	        	        },
+	        	        
+	        	        boundaryGap: false,
+	        	        data : ['1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24']
+	        	    },
+	        	    yAxis: {
+	        	        type: 'value',
+	        	        splitLine:{
+	        	        	show: true,
+	        	        	lineStyle: {
+							color: ['#ccc'],
+							width: 1,
+							type: 'dotted',
+							},
+	        	        },
+	        	        
+	        	        name: '单位（kW）',
+	        	        axisLabel: {
+	        	            formatter: '{value}'
+	        	        }
+	        	    },
+	        	    series: [
+	        	        {
+	        	            name:'昨日(11月8日)',
+	        	            type:'line',
+	        	            data:['1,10',106,110,110,318,119,205,256,156,309,256,306,206,356,456,486,565.45,234,156,206,126,256,150,276,110,106,110,110,318,119,205,256,156,309,256,306,206,356,],
+	        	           
+	        	        },
+				        {
+				            type:'line',
+				            name : '今日(11月9日)',
+							data:[210,136,120,120,118,219,195,176,156,329,356,346,406.54,256,156,],
+				        }
+							]
+	        	};
+
+	        myChart13.setOption(option15);
+
+	        var myChart14 = echarts.init(document.getElementById('pic0'));
+			option14 = {
+			    title: {
+			        text: '一天用电量分布',
+			        subtext: '纯属虚构'
+			    },
+			    tooltip: {
+			        trigger: 'axis'
+			    },
+			    toolbox: {
+			        show: false,
+			        feature: {
+			            saveAsImage: {}
+			        }
+			    },
+			    grid: {
+				        left: '1%',
+				        right: '1%',
+				        bottom: '3%',
+				        containLabel: true
+				    },
+			    xAxis:  {
+			        type: 'category',
+			        boundaryGap: false,
+			        data: ['00:00', '01:15', '02:30', '03:45', '05:00', '06:15', '07:30', '08:45', '10:00', '11:15', '12:30', '13:45', '15:00', '16:15', '17:30', '18:45', '20:00', '21:15', '22:30', '23:45']
+			    },
+			    yAxis: {
+			        type: 'value',
+			        axisLabel: {
+			            formatter: '{value} W'
+			        }
+			    },
+			   
+			    series: [
+			        {
+			            name:'用电量',
+			            type:'line',
+			            smooth: true,
+			            color:'blue',
+			            data: [300, 280, 250, 260, 270, 300, 550, 500, 400, 390, 380, 390, 400, 500, 600, 750, 800, 700, 600, 400],
+			           
+			        },
+			        {
+			            name:'用电量',
+			            type:'line',
+			            smooth: true,    //线条是平滑的还是直线
+			            data: [310, 240, 260, 266, 290, 330, 590, 520, 480, 490, 780, 360, 470, 509, 620, 770, 810, 706, 650, 500],
+			           
+			        }
+			    ]
+		};
+		myChart14.setOption(option14);
+	</script>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+</head>
+<body>
+	<div id="main" style="100%; height: 100%;"></div>
+</body>
+<script src="js/echarts.js"></script>
+<script src="js/map/js/province/shanghai.js"></script>
+<script>
+	var myChart = echarts.init(document.getElementById('main'));
+	var option = {
+		title: {
+			text : '上海地图',
+			subtext : '-。-'
+		},
+		tooltip : {
+			trigger: 'item',
+			formatter: function(a){
+				return a[2];
+			}
+		},
+		legend: {
+			orient: 'vertical',
+			x:'right',
+			data:['数据名称']
+		},
+		dataRange: {
+			min: 0,
+			max: 1000,
+			color:['orange','yellow'],
+			text:['高','低'],           // 文本，默认为数值文本
+			calculable : true
+		},
+		series : [
+			{
+				name: '数据名称',
+				type: 'map',
+				mapType: '上海',
+				selectedMode : 'single',
+				itemStyle:{
+					normal:{label:{show:true}},
+					emphasis:{label:{show:true}}
+				},
+				data:[
+					{name: '崇明县',value: Math.round(Math.random()*1000)},
+					{name: '宝山区',value: Math.round(Math.random()*1000)},
+					{name: '嘉定区',value: Math.round(Math.random()*1000)},
+					{name: '青浦区',value: Math.round(Math.random()*1000)},
+					{name: '杨浦区',value: Math.round(Math.random()*1000)},
+					{name: '虹口区',value: Math.round(Math.random()*1000)},
+					{name: '闸北区',value: Math.round(Math.random()*1000)},
+					{name: '普陀区',value: Math.round(Math.random()*1000)},
+					{name: '静安区',value: Math.round(Math.random()*1000)},
+					{name: '黄浦区',value: Math.round(Math.random()*1000)},
+					{name: '卢湾区',value: Math.round(Math.random()*1000)},
+					{name: '长宁区',value: Math.round(Math.random()*1000)},
+					{name: '徐汇区',value: Math.round(Math.random()*1000)},
+					{name: '浦东新区',value: Math.round(Math.random()*1000)},
+					{name: '松江区',value: Math.round(Math.random()*1000)},
+					{name: '闵行区',value: Math.round(Math.random()*1000)},
+					{name: '金山区',value: Math.round(Math.random()*1000)},
+					{name: '奉贤区',value: Math.round(Math.random()*1000)},
+					{name: '南汇区',value: Math.round(Math.random()*1000)}
+				]
+			}
+		]
+	};
+	myChart.setOption(option);
+                    
+</script>
+</html>

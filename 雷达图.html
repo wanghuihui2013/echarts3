@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div id="elecur" style="width: 1000px;height:500px;"></div>
+	<script src="js/echarts.js"></script>
+	<script>
+		var myChart = echarts.init(document.getElementById('elecur'));
+		option = {
+			    title: {
+			        text: '电价影响因素分析',
+			        left: 'center',
+			        top:'0'
+			    },
+			    tooltip: {
+			        trigger: 'item',
+			        backgroundColor : 'rgba(0,0,0,0.2)'
+			    },
+			    legend: {
+			        type: 'scroll',
+			        bottom: 10,
+			        data: (function (){
+			            var list = [];
+			            for (var i = 1; i <=28; i++) {
+			                list.push(i + 2000 + '');
+			            }
+			            return list;
+			        })()
+			    },
+			    color:['#0968f8'],
+			    radar: {
+			       indicator : [
+			           { text: '发电原材料成本', max: 0.35},
+			           { text: '其他因素', max: 0.35},
+			           { text: '市场博弈', max: 0.35},
+			           { text: '政策规则', max: .035},
+			           { text: '供需情况', max: 0.35}
+			        ]
+			    },
+			    series : (function (){
+			        var series = [];
+			        for (var i = 1; i <= 28; i++) {
+			            series.push({
+			                name:'电价影响因素分析',
+			                type: 'radar',
+			                symbol: 'none',
+			                itemStyle: {
+			                    normal: {
+			                        lineStyle: {
+			                          width:1
+			                        }
+			                    },
+			                    emphasis : {
+			                        areaStyle: {color:'rgba(0,250,0,0.3)'}
+			                    }
+			                },
+			                data:[
+			                  {
+			                    value:[0.2,0.1,0.1,0.01,0.3],
+
+			                  }
+			                ]
+			            });
+			        }
+			        return series;
+			    })()
+			};
+		myChart.setOption(option);
+
+	</script>
+</body>
+</html>

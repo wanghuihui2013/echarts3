@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div id="pic0" style="width: 600px;height:400px;"></div>
+    <script src="js/echarts.js"></script>
+	<script>
+		var myChart14 = echarts.init(document.getElementById('pic0'));
+		option14 = {
+				title: {
+			        text: 'Step Line'
+			    },
+			    tooltip: {
+			        trigger: 'axis'
+			    },
+			    legend: {
+			        data:['供应方', '需求方']
+			    },
+			    grid: {
+			        left: '3%',
+			        right: '7%',
+			        bottom: '3%',
+			        containLabel: true
+			    },
+			    toolbox: {
+			    	show:false,
+			        feature: {
+			            saveAsImage: {}
+			        }
+			    },
+			    xAxis: [
+				    {
+				    name:'电量',
+			        type: 'category',
+			        boundaryGap: true,
+			        nameLocation:'end',
+			        bottom:'bottom',
+			        right:'right',
+			        data: ['100','200', '300', '400','500','600','700','800','900','1000','1100','1200','1300'],
+			        axisLabel:{
+			        	interval:0   //设置间隔，0的时候全部显示1，2.....
+			        },
+			        nameGap:1,
+			    	}
+			    ],
+			    yAxis: [{
+			    	name:'电价',
+			        type: 'value',
+			        nameLocation:'middle',
+			    }],
+			    series: [
+			        {
+			            name:'卖家',
+			            type:'line',
+			            step: 'start',
+			            showSymbol:false,
+			            showAllSymbol:false,
+			            label:{ 
+                   			normal:{
+                   				show:true,
+                   				position:'top',
+                   				formatter:'卖家'
+                   			}
+                   		},
+                   		itemStyle:{  
+			                normal:{    
+			                     lineStyle:{    
+			                         color:'yellow',  /*改变线条颜色*/ 
+			                         type:'dashed'	 /*改变线条类型 solid''dashed''dotted'*/
+			                     }    
+			                 }  
+			          	},
+			            symbol:'none',  //去掉小圆点
+			            data:[-500,-500,-500,-500,-500,-500,-480,-480,-480,-480,-450, -400,-400],
+			            markLine: {
+			                silent: true,
+			                data: [{
+			                    yAxis: -275
+			                }]
+			            }
+					},
+			        {
+			            name:'买家',
+			            type:'line',
+			            step: 'end',   //middle,end
+			            symbol:'none',
+			            showSymbol:false,
+			            showAllSymbol: false,
+			            label:{ 
+                   			normal:{
+                   				show:true,
+                   				position:'top',
+                   				formatter:'买家'
+                   			}
+					        
+					    },
+					    markLine: {       //竖直分割线
+			                name:'aa',
+			                data: [[
+			                    {
+			                    	coord:['1200',-500],
+			                    	label:{normal:{show:false}}
+			                	},
+			                    {
+			                    	coord:['1200',0],
+			                    	label:{normal:{show:false}}
+			                    }//如何获取grid上侧最大值，目前是写死的
+			                ]]
+		            	},
+			            data:[-50,-50,-50,-50, -100, -100, -100,-100,-100,-120,-150,-150]
+			        }
+			    ],
+
+			}	
+			
+		    
+		myChart14.setOption(option14);
+	</script>
+</body>
+</html>
